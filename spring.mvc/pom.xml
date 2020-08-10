@@ -54,6 +54,14 @@
 			<scope>provided</scope>
 		</dependency>
 
+		<!-- Hibernate dependency -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-agroal</artifactId>
+			<version>5.4.19.Final</version>
+			<type>pom</type>
+		</dependency>
+
 		<!-- mysql dependency -->
 		<dependency>
 			<groupId>mysql</groupId>

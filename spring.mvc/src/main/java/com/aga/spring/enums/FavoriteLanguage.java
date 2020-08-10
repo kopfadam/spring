@@ -1,4 +1,4 @@
-package com.aga.spring.mvc;
+package com.aga.spring.enums;
 
 public enum FavoriteLanguage {
 	

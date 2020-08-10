@@ -8,6 +8,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.aga.spring.entity.Student;
+import com.aga.spring.enums.CountryCode;
+import com.aga.spring.enums.ExperiencedOS;
+import com.aga.spring.enums.FavoriteLanguage;
+
 @Controller
 @RequestMapping("/student")
 public class StudentController {

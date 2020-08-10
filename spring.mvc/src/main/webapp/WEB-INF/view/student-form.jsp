@@ -17,6 +17,9 @@
 		Last Name: <form:input path="lastName" />
 		<br>
 		<br>
+		Email: <form:input path="email" />
+		<br>
+		<br>
 		Country: 
 		<form:select path="country">
 			<form:option value="" label="--Select your country--"></form:option>
