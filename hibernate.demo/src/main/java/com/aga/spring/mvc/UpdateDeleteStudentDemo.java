@@ -22,7 +22,7 @@ public class UpdateDeleteStudentDemo {
 		Session session = factory.getCurrentSession();
 		
 		try {
-			int id= 3;
+			int id= 2;
 			
 			//start a transaction
 			session.beginTransaction();
@@ -30,7 +30,7 @@ public class UpdateDeleteStudentDemo {
 			//get student with id=3
 			Student student = session.get(Student.class, id);
 			//update the name
-			//student.setFirstName("Caner");
+			//student.setEmail("caner@mail.com");
 			
 			//bulk update
 			//session.createQuery("update Student set email='naber@mail.com'").executeUpdate();

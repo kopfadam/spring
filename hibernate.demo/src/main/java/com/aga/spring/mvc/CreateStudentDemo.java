@@ -26,11 +26,11 @@ public class CreateStudentDemo {
 			
 			//create a student object
 			System.out.println("Create a student object");
-			String theDateOfBirthStr = "31/12/1998";
+			String theDateOfBirthStr = "11/12/2005";
 			 
             Date theDateOfBirth = DateUtils.parseDate(theDateOfBirthStr);
  
-            Student tempStudent = new Student("Pauly", "Doe", "paul@mail.com", theDateOfBirth);
+            Student tempStudent = new Student("Haci", "Nettin", "gokhanyinebilemedi@mail.com", theDateOfBirth);
  
 			
 			//start a transaction
