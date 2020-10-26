@@ -22,11 +22,11 @@ public class Pet extends NamedEntity{
     private Date birthDate;
 
     @ManyToOne
-    @Column(name = "type_id")
+    @JoinColumn(name = "type_id")
     private PetType type;
 
     @ManyToOne
-    @Column(name = "owner_id")
+    @JoinColumn(name = "owner_id")
     private Owner owner;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "pet", fetch = FetchType.EAGER)

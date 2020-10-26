@@ -14,6 +14,7 @@ import java.util.Set;
 @Setter
 public class User {
 
+    @Id
     @Column(name = "username")
     private String userName;
 
