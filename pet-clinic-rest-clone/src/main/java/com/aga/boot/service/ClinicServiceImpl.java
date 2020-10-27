@@ -17,21 +17,21 @@ import java.util.Collection;
 public class ClinicServiceImpl implements ClinicService {
 
 
-    private VetRepository vetRepository;
+
     private VisitRepository visitRepository;
     private SpecialtyRepository specialtyRepository;
 
 
     @Autowired
     public ClinicServiceImpl(
-            VetRepository vetRepository,
-            OwnerRepository ownerRepository,
+
+
             VisitRepository visitRepository,
             SpecialtyRepository specialtyRepository
 
     ) {
 
-        this.vetRepository = vetRepository;
+
         this.visitRepository = visitRepository;
         this.specialtyRepository = specialtyRepository;
 
@@ -72,37 +72,7 @@ public class ClinicServiceImpl implements ClinicService {
         visitRepository.delete(visit);
     }
 
-    @Override
-    public Vet findVetById(int id) throws DataAccessException {
-        Vet vet = null;
-        try {
-            vet = vetRepository.findById(id);
-        } catch (ObjectRetrievalFailureException | EmptyResultDataAccessException e) {
-            return null;
-        }
-        return vet;
-    }
 
-    @Override
-    @Cacheable(value = "vets")
-    public Collection<Vet> findVets() throws DataAccessException {
-        return vetRepository.findAll();
-    }
-
-    @Override
-    public Collection<Vet> findAllVets() throws DataAccessException {
-        return vetRepository.findAll();
-    }
-
-    @Override
-    public void saveVet(Vet vet) throws DataAccessException {
-        vetRepository.save(vet);
-    }
-
-    @Override
-    public void deleteVet(Vet vet) throws DataAccessException {
-        vetRepository.delete(vet);
-    }
 
 
     @Override
