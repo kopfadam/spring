@@ -1,9 +1,8 @@
-package com.aga.boot.service;
+package com.aga.boot.service.specialty;
 
-import com.aga.boot.model.*;
-import com.aga.boot.repository.*;
+import com.aga.boot.model.Specialty;
+import com.aga.boot.repository.SpecialtyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.dao.DataAccessException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.orm.ObjectRetrievalFailureException;
@@ -14,34 +13,10 @@ import java.util.Collection;
 
 @Service
 @Transactional
-public class ClinicServiceImpl implements ClinicService {
-
-
-
-
-    private SpecialtyRepository specialtyRepository;
-
+public class SpecialtyServiceImpl implements SpecialtyService{
 
     @Autowired
-    public ClinicServiceImpl(
-
-
-
-            SpecialtyRepository specialtyRepository
-
-    ) {
-
-
-
-        this.specialtyRepository = specialtyRepository;
-
-    }
-
-
-
-
-
-
+    private SpecialtyRepository specialtyRepository;
 
     @Override
     public Specialty findSpecialtyById(int specialtyId) {
