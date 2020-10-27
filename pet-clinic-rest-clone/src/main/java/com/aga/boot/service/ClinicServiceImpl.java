@@ -16,54 +16,29 @@ import java.util.Collection;
 @Transactional
 public class ClinicServiceImpl implements ClinicService {
 
-    private PetRepository petRepository;
-    private VetRepository vetRepository;
 
+    private VetRepository vetRepository;
+    private PetRepository petRepository;
     private VisitRepository visitRepository;
     private SpecialtyRepository specialtyRepository;
     private PetTypeRepository petTypeRepository;
 
     @Autowired
     public ClinicServiceImpl(
-            PetRepository petRepository,
             VetRepository vetRepository,
             OwnerRepository ownerRepository,
             VisitRepository visitRepository,
             SpecialtyRepository specialtyRepository,
             PetTypeRepository petTypeRepository
     ) {
-        this.petRepository = petRepository;
+
         this.vetRepository = vetRepository;
         this.visitRepository = visitRepository;
         this.specialtyRepository = specialtyRepository;
         this.petTypeRepository = petTypeRepository;
     }
 
-    @Override
-    public Pet findPetById(int id) throws DataAccessException {
-        Pet pet = null;
-        try {
-            pet = petRepository.findById(id);
-        } catch (ObjectRetrievalFailureException | EmptyResultDataAccessException e) {
-            return null;
-        }
-        return pet;
-    }
 
-    @Override
-    public Collection<Pet> findAllPets() throws DataAccessException {
-        return petRepository.findAll();
-    }
-
-    @Override
-    public void savePet(Pet pet) throws DataAccessException {
-        petRepository.save(pet);
-    }
-
-    @Override
-    public void deletePet(Pet pet) throws DataAccessException {
-        petRepository.delete(pet);
-    }
 
     @Override
     public Visit findVisitById(int visitId) throws DataAccessException {
