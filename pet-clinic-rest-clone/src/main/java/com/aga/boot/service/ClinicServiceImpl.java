@@ -18,7 +18,7 @@ public class ClinicServiceImpl implements ClinicService {
 
     private PetRepository petRepository;
     private VetRepository vetRepository;
-    private OwnerRepository ownerRepository;
+
     private VisitRepository visitRepository;
     private SpecialtyRepository specialtyRepository;
     private PetTypeRepository petTypeRepository;
@@ -34,7 +34,6 @@ public class ClinicServiceImpl implements ClinicService {
     ) {
         this.petRepository = petRepository;
         this.vetRepository = vetRepository;
-        this.ownerRepository = ownerRepository;
         this.visitRepository = visitRepository;
         this.specialtyRepository = specialtyRepository;
         this.petTypeRepository = petTypeRepository;
@@ -131,36 +130,7 @@ public class ClinicServiceImpl implements ClinicService {
         vetRepository.delete(vet);
     }
 
-    @Override
-    public Owner findOwnerById(int id) throws DataAccessException {
-        Owner owner = null;
-        try {
-            owner = ownerRepository.findById(id);
-        } catch (ObjectRetrievalFailureException | EmptyResultDataAccessException e) {
-            return null;
-        }
-        return owner;
-    }
 
-    @Override
-    public Collection<Owner> findOwnerByLastName(String lastName) throws DataAccessException {
-        return ownerRepository.findByLastName(lastName);
-    }
-
-    @Override
-    public Collection<Owner> findAllOwners() throws DataAccessException {
-        return ownerRepository.findAll();
-    }
-
-    @Override
-    public void saveOwner(Owner owner) throws DataAccessException {
-        ownerRepository.save(owner);
-    }
-
-    @Override
-    public void deleteOwner(Owner owner) throws DataAccessException {
-        ownerRepository.delete(owner);
-    }
 
     @Override
     public PetType findPetTypeById(int petTypeId) {
