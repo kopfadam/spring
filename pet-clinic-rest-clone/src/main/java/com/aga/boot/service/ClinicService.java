@@ -7,11 +7,7 @@ import java.util.Collection;
 
 public interface ClinicService {
 
-    Visit findVisitById(int visitId) throws DataAccessException;
-    Collection<Visit> findVisitsByPetId(int petId);
-    Collection<Visit> findAllVisits() throws DataAccessException;
-    void saveVisit(Visit visit) throws DataAccessException;
-    void deleteVisit(Visit visit) throws DataAccessException;
+
 
 
 

@@ -18,7 +18,7 @@ public class ClinicServiceImpl implements ClinicService {
 
 
 
-    private VisitRepository visitRepository;
+
     private SpecialtyRepository specialtyRepository;
 
 
@@ -26,51 +26,19 @@ public class ClinicServiceImpl implements ClinicService {
     public ClinicServiceImpl(
 
 
-            VisitRepository visitRepository,
+
             SpecialtyRepository specialtyRepository
 
     ) {
 
 
-        this.visitRepository = visitRepository;
+
         this.specialtyRepository = specialtyRepository;
 
     }
 
 
 
-    @Override
-    public Visit findVisitById(int visitId) throws DataAccessException {
-        Visit visit = null;
-        try {
-            visit = visitRepository.findById(visitId);
-        } catch (ObjectRetrievalFailureException | EmptyResultDataAccessException e) {
-            return null;
-        }
-        return visit;
-    }
-
-    @Override
-    public Collection<Visit> findVisitsByPetId(int petId) {
-
-        return visitRepository.findByPetId(petId);
-
-    }
-
-    @Override
-    public Collection<Visit> findAllVisits() throws DataAccessException {
-        return visitRepository.findAll();
-    }
-
-    @Override
-    public void saveVisit(Visit visit) throws DataAccessException {
-        visitRepository.save(visit);
-    }
-
-    @Override
-    public void deleteVisit(Visit visit) throws DataAccessException {
-        visitRepository.delete(visit);
-    }
 
 
 
