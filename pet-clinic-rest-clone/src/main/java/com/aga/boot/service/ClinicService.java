@@ -7,8 +7,6 @@ import java.util.Collection;
 
 public interface ClinicService {
 
-
-
     Visit findVisitById(int visitId) throws DataAccessException;
     Collection<Visit> findVisitsByPetId(int petId);
     Collection<Visit> findAllVisits() throws DataAccessException;
@@ -20,13 +18,6 @@ public interface ClinicService {
     Collection<Vet> findAllVets() throws DataAccessException;
     void saveVet(Vet vet) throws DataAccessException;
     void deleteVet(Vet vet) throws DataAccessException;
-
-
-    PetType findPetTypeById(int petTypeId);
-    Collection<PetType> findAllPetTypes() throws DataAccessException;
-    Collection<PetType> findPetTypes() throws DataAccessException;
-    void savePetType(PetType petType) throws DataAccessException;
-    void deletePetType(PetType petType) throws DataAccessException;
 
     Specialty findSpecialtyById(int specialtyId);
     Collection<Specialty> findAllSpecialties() throws DataAccessException;

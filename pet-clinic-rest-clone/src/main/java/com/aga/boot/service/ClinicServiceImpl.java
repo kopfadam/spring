@@ -18,24 +18,23 @@ public class ClinicServiceImpl implements ClinicService {
 
 
     private VetRepository vetRepository;
-    private PetRepository petRepository;
     private VisitRepository visitRepository;
     private SpecialtyRepository specialtyRepository;
-    private PetTypeRepository petTypeRepository;
+
 
     @Autowired
     public ClinicServiceImpl(
             VetRepository vetRepository,
             OwnerRepository ownerRepository,
             VisitRepository visitRepository,
-            SpecialtyRepository specialtyRepository,
-            PetTypeRepository petTypeRepository
+            SpecialtyRepository specialtyRepository
+
     ) {
 
         this.vetRepository = vetRepository;
         this.visitRepository = visitRepository;
         this.specialtyRepository = specialtyRepository;
-        this.petTypeRepository = petTypeRepository;
+
     }
 
 
@@ -105,38 +104,6 @@ public class ClinicServiceImpl implements ClinicService {
         vetRepository.delete(vet);
     }
 
-
-
-    @Override
-    public PetType findPetTypeById(int petTypeId) {
-        PetType petType = null;
-        try {
-            petType = petTypeRepository.findById(petTypeId);
-        } catch (ObjectRetrievalFailureException | EmptyResultDataAccessException e) {
-            return null;
-        }
-        return petType;
-    }
-
-    @Override
-    public Collection<PetType> findAllPetTypes() throws DataAccessException {
-        return petTypeRepository.findAll();
-    }
-
-    @Override
-    public Collection<PetType> findPetTypes() throws DataAccessException {
-        return petRepository.findPetTypes();
-    }
-
-    @Override
-    public void savePetType(PetType petType) throws DataAccessException {
-        petTypeRepository.save(petType);
-    }
-
-    @Override
-    public void deletePetType(PetType petType) throws DataAccessException {
-        petTypeRepository.delete(petType);
-    }
 
     @Override
     public Specialty findSpecialtyById(int specialtyId) {
