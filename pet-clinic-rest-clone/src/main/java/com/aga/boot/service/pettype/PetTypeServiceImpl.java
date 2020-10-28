@@ -1,7 +1,7 @@
 package com.aga.boot.service.pettype;
 
 import com.aga.boot.model.PetType;
-import com.aga.boot.repository.PetRepository;
+import com.aga.boot.repository.pet.PetRepository;
 import com.aga.boot.repository.PetTypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
@@ -41,7 +41,7 @@ public class PetTypeServiceImpl implements PetTypeService{
 
     @Override
     public Collection<PetType> findPetTypes() throws DataAccessException {
-        return petRepository.findPetTypes();
+        return petRepository.findPetType();
     }
 
     @Override

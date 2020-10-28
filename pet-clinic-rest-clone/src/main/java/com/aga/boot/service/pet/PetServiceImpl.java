@@ -1,7 +1,7 @@
 package com.aga.boot.service.pet;
 
 import com.aga.boot.model.Pet;
-import com.aga.boot.repository.PetRepository;
+import com.aga.boot.repository.pet.PetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.dao.EmptyResultDataAccessException;

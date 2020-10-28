@@ -6,10 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.util.UriBuilder;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import java.net.URI;
 import java.util.Collection;
 
 @RestController
@@ -32,14 +30,14 @@ public class OwnerController {
     }
 
     @PostMapping
-    public ResponseEntity<Owner> addOwner(@PathVariable Owner owner){
+    public ResponseEntity<Owner> addOwner(@RequestBody Owner owner){
 
         if (owner.getId() != null)
             return ResponseEntity.badRequest().build();
 
         try {
-            ownerService.saveOwner(owner);
-            var location = UriComponentsBuilder.fromUriString("api/owners/{id}").buildAndExpand(owner.getId()).toUri();
+            Owner ownerReturned = ownerService.saveOwner(owner);
+            var location = UriComponentsBuilder.fromUriString("api/owners/{id}").buildAndExpand(ownerReturned.getId()).toUri();
 
             return ResponseEntity.created(location).build();
 

@@ -1,14 +1,13 @@
 package com.aga.boot.repository;
 
+import com.aga.boot.model.Owner;
 import com.aga.boot.model.Vet;
 import org.springframework.dao.DataAccessException;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Collection;
 
-public interface VetRepository {
+public interface VetRepository extends JpaRepository<Vet, Integer> {
 
-    Collection<Vet> findAll() throws DataAccessException;
     Vet findById(int id)  throws DataAccessException;
-    void save(Vet vet) throws DataAccessException;
-    void delete(Vet vet) throws DataAccessException;
 }
