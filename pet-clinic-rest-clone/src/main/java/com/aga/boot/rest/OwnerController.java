@@ -3,12 +3,13 @@ package com.aga.boot.rest;
 import com.aga.boot.model.Owner;
 import com.aga.boot.service.owner.OwnerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.util.UriBuilder;
+import org.springframework.web.util.UriComponentsBuilder;
 
+import java.net.URI;
 import java.util.Collection;
 
 @RestController
@@ -28,6 +29,23 @@ public class OwnerController {
             return ResponseEntity.notFound().build();
 
         return ResponseEntity.ok(ownersList);
+    }
+
+    @PostMapping
+    public ResponseEntity<Owner> addOwner(@PathVariable Owner owner){
+
+        if (owner.getId() != null)
+            return ResponseEntity.badRequest().build();
+
+        try {
+            ownerService.saveOwner(owner);
+            var location = UriComponentsBuilder.fromUriString("api/owners/{id}").buildAndExpand(owner.getId()).toUri();
+
+            return ResponseEntity.created(location).build();
+
+        }catch (Exception e){
+            return ResponseEntity.badRequest().build();
+        }
     }
 
 
