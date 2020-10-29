@@ -7,6 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import javax.transaction.Transactional;
+import javax.validation.Valid;
 import java.util.Collection;
 
 @RestController
@@ -29,7 +31,7 @@ public class OwnerController {
     }
 
     @PostMapping
-    public ResponseEntity<Owner> addOwner(@RequestBody Owner owner){
+    public ResponseEntity<Owner> addOwner(@RequestBody @Valid Owner owner){
 
         if (owner.getId() != null)
             return ResponseEntity.badRequest().build();
@@ -86,6 +88,7 @@ public class OwnerController {
     }
 
     @DeleteMapping("/{ownerId}")
+    @Transactional
     public ResponseEntity<Void> deleteOwner(@PathVariable int ownerId){
         var owner = ownerService.findOwnerById(ownerId);
         if (owner == null)
