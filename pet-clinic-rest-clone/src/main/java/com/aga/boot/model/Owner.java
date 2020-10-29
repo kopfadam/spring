@@ -10,6 +10,8 @@ import org.springframework.core.style.ToStringCreator;
 import javax.persistence.*;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.util.*;
 
 @Entity
@@ -27,7 +29,8 @@ public class Owner extends Person{
 
     @Column(name = "telephone")
     @NotEmpty
-    @Digits(fraction = 0, integer = 10)
+    @Size(min = 10, max = 10)
+    @Pattern(regexp = "(^[0-9]{10})")
     private String telephone;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner", fetch = FetchType.EAGER)
