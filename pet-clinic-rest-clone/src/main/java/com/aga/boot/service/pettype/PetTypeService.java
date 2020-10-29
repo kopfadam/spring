@@ -9,7 +9,6 @@ public interface PetTypeService {
 
     PetType findPetTypeById(int petTypeId);
     Collection<PetType> findAllPetTypes() throws DataAccessException;
-    Collection<PetType> findPetTypes() throws DataAccessException;
-    void savePetType(PetType petType) throws DataAccessException;
+    PetType savePetType(PetType petType) throws DataAccessException;
     void deletePetType(PetType petType) throws DataAccessException;
 }

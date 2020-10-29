@@ -40,13 +40,8 @@ public class PetTypeServiceImpl implements PetTypeService{
     }
 
     @Override
-    public Collection<PetType> findPetTypes() throws DataAccessException {
-        return petRepository.findPetType();
-    }
-
-    @Override
-    public void savePetType(PetType petType) throws DataAccessException {
-        petTypeRepository.save(petType);
+    public PetType savePetType(PetType petType) throws DataAccessException {
+        return petTypeRepository.save(petType);
     }
 
     @Override
