@@ -1,5 +1,6 @@
 package com.aga.boot.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,14 +12,14 @@ import javax.persistence.*;
 import java.util.*;
 
 @Entity
-@Table(name = "pets")
+@Table(name = "pets", indexes = @Index(name = "UK__NAME_BIRTH_OWNER", columnList = "name, birth_date, owner_id", unique = true))
 @Getter
 @Setter
 public class Pet extends NamedEntity{
 
     @Column(name = "birth_date")
     @Temporal(TemporalType.DATE)
-    @DateTimeFormat(pattern = "yyyy/MM/dd")
+    @JsonFormat(pattern = "yyyy/MM/dd")
     private Date birthDate;
 
     @ManyToOne

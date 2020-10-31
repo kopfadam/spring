@@ -1,6 +1,7 @@
 package com.aga.boot.service.pet;
 
 import com.aga.boot.model.Pet;
+import com.aga.boot.model.PetType;
 import com.aga.boot.repository.PetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
@@ -34,9 +35,10 @@ public class PetServiceImpl implements PetService{
         return petRepository.findAll();
     }
 
+
     @Override
-    public void savePet(Pet pet) throws DataAccessException {
-        petRepository.save(pet);
+    public Pet savePet(Pet pet) throws DataAccessException {
+        return petRepository.save(pet);
     }
 
     @Override
