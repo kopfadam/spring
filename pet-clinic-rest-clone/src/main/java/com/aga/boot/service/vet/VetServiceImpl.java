@@ -42,8 +42,8 @@ public class VetServiceImpl implements VetService{
     }
 
     @Override
-    public void saveVet(Vet vet) throws DataAccessException {
-        vetRepository.save(vet);
+    public Vet saveVet(Vet vet) throws DataAccessException {
+        return vetRepository.save(vet);
     }
 
     @Override
