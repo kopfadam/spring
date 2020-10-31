@@ -35,8 +35,8 @@ public class SpecialtyServiceImpl implements SpecialtyService{
     }
 
     @Override
-    public void saveSpecialty(Specialty specialty) throws DataAccessException {
-        specialtyRepository.save(specialty);
+    public Specialty saveSpecialty(Specialty specialty) throws DataAccessException {
+        return specialtyRepository.save(specialty);
     }
 
     @Override
