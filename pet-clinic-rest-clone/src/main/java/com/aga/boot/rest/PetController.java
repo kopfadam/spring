@@ -54,6 +54,17 @@ public class PetController {
         return ResponseEntity.ok(pets);
     }
 
+    @GetMapping("/types")
+    public ResponseEntity<Collection<PetType>> getPetTypes(){
+
+        var petTypes = petService.findPetTypes();
+
+        if (petTypes.isEmpty())
+            return ResponseEntity.notFound().build();
+
+        return ResponseEntity.ok(petTypes);
+    }
+
     @PutMapping("/{petId}")
     public ResponseEntity<Pet> updatePet(@PathVariable int petId, @RequestBody @Valid Pet pet){
         var currentPet = petService.findPetById(petId);

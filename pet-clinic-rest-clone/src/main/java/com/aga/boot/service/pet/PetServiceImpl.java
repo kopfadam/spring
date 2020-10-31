@@ -20,6 +20,12 @@ public class PetServiceImpl implements PetService{
     private PetRepository petRepository;
 
     @Override
+    public Collection<PetType> findPetTypes() throws DataAccessException {
+        return petRepository.findPetTypes();
+    }
+
+
+    @Override
     public Pet findPetById(int id) throws DataAccessException {
         Pet pet = null;
         try {
