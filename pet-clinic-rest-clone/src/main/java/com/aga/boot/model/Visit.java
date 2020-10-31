@@ -7,20 +7,24 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 @Entity
-@Table(name = "visits")
+@Table(name = "visits", indexes = @Index(name = "UK__DATE_TIME_PET", columnList = "visit_date, pet_id", unique = true))
 @Getter
 @Setter
 public class Visit extends BaseEntity{
 
     @Column(name = "visit_date")
-    @NotEmpty
-    @Temporal(TemporalType.TIMESTAMP)
-    @DateTimeFormat(pattern = "yyyy/MM/dd")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy/MM/dd")
+    @NotNull
+    @JsonFormat(pattern = "yyyy/MM/dd")
     private Date date;
+
 
     @Column(name = "description")
     @NotEmpty
@@ -30,7 +34,7 @@ public class Visit extends BaseEntity{
     @JoinColumn(name = "pet_id")
     private Pet pet;
 
-    public Visit() {
-        this.date = new Date();
-    }
+    /*public Visit() {
+        this.dateTime = LocalDateTime.now();
+    }*/
 }

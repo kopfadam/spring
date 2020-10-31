@@ -42,8 +42,8 @@ public class VisitServiceImpl implements VisitService{
     }
 
     @Override
-    public void saveVisit(Visit visit) throws DataAccessException {
-        visitRepository.save(visit);
+    public Visit saveVisit(Visit visit) throws DataAccessException {
+        return visitRepository.save(visit);
     }
 
     @Override
