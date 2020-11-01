@@ -16,4 +16,7 @@ public interface PetRepository extends JpaRepository<Pet, Integer> {
     @Query("SELECT DISTINCT p.type from Pet p ORDER BY p.type.name")
     Collection<PetType> findPetTypesInRecordedPets() throws DataAccessException;
 
+    @Query("SELECT p from Pet p WHERE p.type.name = :name")
+    Collection<Pet> findPetByPetTypeName(String name) throws DataAccessException;
+
 }

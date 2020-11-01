@@ -57,12 +57,23 @@ public class PetController {
     @GetMapping("/types")
     public ResponseEntity<Collection<PetType>> getPetTypesRecorded(){
 
-        var petTypes = petService.findPetTypes();
+        var petTypes = petService.findPetTypesInRecordedPets();
 
         if (petTypes.isEmpty())
             return ResponseEntity.notFound().build();
 
         return ResponseEntity.ok(petTypes);
+    }
+
+    @GetMapping("/types/{name}")
+    public ResponseEntity<Collection<Pet>> getPetByType(@PathVariable String name){
+
+        var pets = petService.findPetByPetType(name);
+
+        if (pets.isEmpty())
+            return ResponseEntity.notFound().build();
+
+        return ResponseEntity.ok(pets);
     }
 
     @PutMapping("/{petId}")

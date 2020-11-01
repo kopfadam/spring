@@ -10,7 +10,8 @@ public interface PetService {
 
     Pet findPetById(int id) throws DataAccessException;
     Collection<Pet> findAllPets() throws DataAccessException;
-    Collection<PetType> findPetTypes() throws DataAccessException;
+    Collection<PetType> findPetTypesInRecordedPets() throws DataAccessException;
+    Collection<Pet> findPetByPetType(String name) throws DataAccessException;
     Pet savePet(Pet pet) throws DataAccessException;
     void deletePet(Pet pet) throws DataAccessException;
 }
