@@ -21,7 +21,7 @@ public class PetServiceImpl implements PetService{
 
     @Override
     public Collection<PetType> findPetTypes() throws DataAccessException {
-        return petRepository.findPetTypes();
+        return petRepository.findPetTypesInRecordedPets();
     }
 
 

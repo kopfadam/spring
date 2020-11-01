@@ -55,7 +55,7 @@ public class PetController {
     }
 
     @GetMapping("/types")
-    public ResponseEntity<Collection<PetType>> getPetTypes(){
+    public ResponseEntity<Collection<PetType>> getPetTypesRecorded(){
 
         var petTypes = petService.findPetTypes();
 

@@ -13,7 +13,7 @@ public interface PetRepository extends JpaRepository<Pet, Integer> {
 
     Pet findById(int id) throws DataAccessException;
 
-    @Query("SELECT DISTINCT p.type from Pet p")
-    Collection<PetType> findPetTypes() throws DataAccessException;
+    @Query("SELECT DISTINCT p.type from Pet p ORDER BY p.type.name")
+    Collection<PetType> findPetTypesInRecordedPets() throws DataAccessException;
 
 }
