@@ -74,9 +74,10 @@ public class VisitController {
         if (currentVisit.getId() == null)
             return ResponseEntity.notFound().build();
 
-        currentVisit.setDate(visit.getDate());
+        // update only description of a visit
+        // every visit of each pet should be saved as a different record
         currentVisit.setDescription(visit.getDescription());
-        currentVisit.setPet(visit.getPet());
+
 
         visitService.saveVisit(currentVisit);
 
